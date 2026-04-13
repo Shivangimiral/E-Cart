@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — ShopNest</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Customer Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+
+
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, var(--ink), var(--ink2), #1e3a5f);
+  border-radius: var(--r);
+  padding: 40px 36px;
+  color: #fff;
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,235,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -.5px;
+}
+
+.hero p {
+  font-size: 14px;
+  opacity: .75;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.hero-acts {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-search {
+  display: flex;
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 1;
+  min-width: 240px;
+}
+
+.hero-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  color: #fff;
+  font-size: 14px;
+  font-family: var(--font);
+  outline: none;
+}
+
+.hero-search input::placeholder { color: rgba(255,255,255,.45); }
+
+.hero-search button {
+  padding: 10px 18px;
+  background: var(--blue);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background .15s;
+}
+
+.hero-search button:hover { background: var(--blue-d); }
+
+/* ── CATEGORY CARDS ── */
+.cat-card {
+  flex: 1;
+  min-width: 90px;
+  text-align: center;
+  padding: 18px 8px;
+  border: 1.5px solid var(--bdr);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .2s;
+  background: #fff;
+}
+
+.cat-card:hover {
+  border-color: var(--blue);
+  background: var(--blue-l);
+  transform: translateY(-2px);
+  box-shadow: var(--s2);
+}
+
+.cat-icon { font-size: 28px; display: block; margin-bottom: 8px; }
+.cat-label { font-size: 12.5px; font-weight: 700; color: var(--t1); }
+
+/* ── PRODUCT CARDS ── */
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.pcard {
+  background: var(--srf);
+  border: 1.5px solid var(--bdr);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.pcard:hover {
+  box-shadow: var(--s2);
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,.3);
+}
+
+.pcard-img {
+  height: 160px;
+  background: linear-gradient(135deg, var(--blue-l), #e0e7ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  position: relative;
+}
+
+.pcard-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.pcard-badge.sale { background: var(--rose); color: #fff; }
+.pcard-badge.new { background: var(--emerald); color: #fff; }
+
+.pcard-body { padding: 14px; }
+.pcard-name { font-size: 13.5px; font-weight: 700; color: var(--t1); }
+.pcard-cat { font-size: 11.5px; color: var(--t3); margin-top: 2px; }
+
+.pcard-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1.5px solid var(--bdr);
+}
+
+.pcard-price { font-size: 16px; font-weight: 800; color: var(--blue); font-family: var(--mono); }
+.pcard-oldprice { font-size: 12px; color: var(--t3); text-decoration: line-through; margin-left: 4px; }
+
+.pcard-addcart {
+  padding: 6px 12px;
+  border-radius: 7px;
+  background: var(--blue-l);
+  color: var(--blue);
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1.5px solid rgba(37,99,235,.2);
+  transition: all .15s;
+  text-decoration: none;
+}
+
+.pcard-addcart:hover { background: var(--blue); color: #fff; }
+
+/* ── SECTION HEADING ── */
+.section-heading {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -.3px;
+  color: var(--t1);
+}
+
+/* ── PAGE ANIMATION ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-anim { animation: fadeIn .35s ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .hero { padding: 24px 18px; }
+  .hero h2 { font-size: 20px; }
+  .pgrid { grid-template-columns: 1fr; }
+  .ph { flex-direction: column; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       TOP NAVBAR — CUSTOMER
+  ══════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg sn-navbar py-0">
+    <div class="container-fluid px-3 px-lg-4">
+
+      <!-- Brand -->
+      <a class="sn-brand" href="customer.html">
+        <div class="sn-brand-mark"><i class="fa-solid fa-basket-shopping"></i></div>
+        <div class="sn-brand-text">
+          <strong>ShopNest</strong>
+          <span>My Account</span>
+        </div>
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler ms-auto me-2" type="button"
+              data-bs-toggle="collapse" data-bs-target="#customerNav"
+              aria-controls="customerNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible -->
+      <div class="collapse navbar-collapse" id="customerNav">
+
+        <!-- Zone switch -->
+        <div class="zone-toggle mx-lg-3 my-2 my-lg-0">
+           <a href="../admin/index.html"    class="zone-btn">Admin</a>
+          <a href="../customer/index.html" class="zone-btn ">Customer</a>
+          <a href="../general/index.html"  class="zone-btn active">General</a>
+        </div>
+
+        <!-- Nav links -->
+        <ul class="navbar-nav me-auto gap-1">
+
+          <li class="nav-item">
+            <span class="nav-sec-label">Overview</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="customer.html">
+              <i class="fa-solid fa-house"></i> Homepage
+            </a>
+          </li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">
+              <i class="fas fa-shopping-cart"></i> Products
+               <span class="nav-bdg r">4</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">
+              <i class="fa-solid fa-user-plus"></i>Register
+             
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <i class="fa-solid fa-user"></i> Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+              <i class="fa-solid fa-phone"></i> Contact Us
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">
+              <i class="fa-solid fa-users"></i>About Us
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="p.html">
+              <i class="fa-solid fa-route"></i> Privacy Policy
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reviews.html">
+              <i class="fa-solid fa-star"></i> Reviews
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <span class="nav-sec-label">Account</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="fa-solid fa-user-circle"></i> My Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="notifications.html">
+              <i class="fa-solid fa-bell"></i> Notifications
+              <span class="nav-bdg a">5</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <!-- Right-side actions -->
+        <div class="nav-actions-row d-flex align-items-center gap-2 my-2 my-lg-0">
+          <a class="nav-icon-btn" href="cart.html" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="ndot"></span>
+          </a>
+          <div class="nav-icon-btn" title="Notifications">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div class="nav-profile ms-1">
+            <div class="nav-av">PS</div>
+            <div class="d-none d-xl-block">
+              <div class="nav-av-name">Priya Sharma</div>
+              <div class="nav-av-role">Customer</div>
+            </div>
+            <i class="fa-solid fa-chevron-down ms-1" style="font-size:9px;color:rgba(255,255,255,.3)"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  
+  <!-- ══════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════ -->
+  <main class="cnt page-anim">
+
+    <!-- Zone pill -->
+    <div class="zpill gen">
+      <i class="fa-solid fa-globe"></i> General Zone
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <h2>Shop Everything You Love 🛍️</h2>
+      <p>Millions of products across electronics, fashion, home, beauty &amp; more — delivered to your doorstep.</p>
+      <div class="hero-acts">
+        <div class="hero-search">
+          <input type="text" placeholder="Search for products, brands, categories…" aria-label="Search products" />
+          <button aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <a href="products.html" class="btn-sn btn-p">Browse All Products →</a>
+      </div>
+    </section>
+
+    <!-- ── CATEGORIES ── -->
+    <div class="card-sn mb-18">
+      <div class="ch">
+        <h3><i class="fa-solid fa-th"></i> Shop by Category</h3>
+      </div>
+      <div class="cb">
+        <div class="d-flex gap-3 flex-wrap">
+          <div class="cat-card">
+            <span class="cat-icon">📱</span>
+            <div class="cat-label">Electronics</div>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">👗</span>
+            <div class="cat-label">Fashion</div>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">🏠</span>
+            <div class="cat-label">Home</div>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">💄</span>
+            <div class="cat-label">Beauty</div>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">📚</span>
+            <div class="cat-label">Books</div>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">🏋️</span>
+            <div class="cat-label">Sports</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FEATURED PRODUCTS ── -->
+    <p class="section-heading">🔥 Featured Products</p>
+    <div class="pgrid">
+
+      <article class="pcard">
+        <div class="pcard-img">
+          📱
+          <span class="pcard-badge sale">SALE</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">iPhone 15 Pro Max</div>
+          <div class="pcard-cat">Electronics · Apple</div>
+          <div class="pcard-foot">
+            <div>
+              <span class="pcard-price">₹1,24,900</span>
+              <span class="pcard-oldprice">₹1,29,900</span>
+            </div>
+            <a href="login.html" class="pcard-addcart">Buy Now</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">
+          👟
+          <span class="pcard-badge new">NEW</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Nike Air Max 270</div>
+          <div class="pcard-cat">Fashion · Nike</div>
+          <div class="pcard-foot">
+            <div><span class="pcard-price">₹12,995</span></div>
+            <a href="login.html" class="pcard-addcart">Buy Now</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#ffedd5,#fed7aa)">
+          ⌚
+          <span class="pcard-badge new">NEW</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Apple Watch Series 9</div>
+          <div class="pcard-cat">Electronics · Apple</div>
+          <div class="pcard-foot">
+            <div><span class="pcard-price">₹41,900</span></div>
+            <a href="login.html" class="pcard-addcart">Buy Now</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.pgrid -->
+
+  </main>
+
+ <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
