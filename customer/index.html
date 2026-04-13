@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — ShopNest</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Customer Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       TOP NAVBAR — CUSTOMER
+  ══════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg sn-navbar py-0">
+    <div class="container-fluid px-3 px-lg-4">
+
+      <!-- Brand -->
+      <a class="sn-brand" href="customer.html">
+        <div class="sn-brand-mark"><i class="fa-solid fa-basket-shopping"></i></div>
+        <div class="sn-brand-text">
+          <strong>ShopNest</strong>
+          <span>My Account</span>
+        </div>
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler ms-auto me-2" type="button"
+              data-bs-toggle="collapse" data-bs-target="#customerNav"
+              aria-controls="customerNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible -->
+      <div class="collapse navbar-collapse" id="customerNav">
+
+        <!-- Zone switch -->
+        <div class="zone-toggle mx-lg-3 my-2 my-lg-0">
+           <a href="../admin/index.html"    class="zone-btn">Admin</a>
+          <a href="../customer/index.html" class="zone-btn active">Customer</a>
+          <a href="../general/index.html"  class="zone-btn ">General</a>
+        </div>
+
+        <!-- Nav links -->
+        <ul class="navbar-nav me-auto gap-1">
+
+          <li class="nav-item">
+            <span class="nav-sec-label">Overview</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="customer.html">
+              <i class="fa-solid fa-gauge-high"></i> My Dashboard
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">
+              <i class="fas fa-shopping-cart"></i> Products
+               <span class="nav-bdg r">4</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <span class="nav-sec-label">Shopping</span>
+          </li>
+         
+         
+
+          <li class="nav-item">
+            <span class="nav-sec-label">Orders</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="my-orders.html">
+              <i class="fa-solid fa-box-archive"></i> My Orders
+            </a>
+          </li>
+         
+
+          <li class="nav-item">
+            <span class="nav-sec-label">Account</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+              <i class="fa-solid fa-user-circle"></i> My Profile
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="../general/index.html">
+              <i class="fa-solid fa-right-from-bracket"></i>Loguot
+            </a>
+          </li>
+         
+
+        </ul>
+
+        <!-- Right-side actions -->
+        <div class="nav-actions-row d-flex align-items-center gap-2 my-2 my-lg-0">
+          <a class="nav-icon-btn" href="cart.html" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="ndot"></span>
+          </a>
+          <a class="nav-icon-btn" href="notifications.html" title="Notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span class="ndot"></span>
+          </a>
+          
+          <div class="nav-profile ms-1">
+            <div class="nav-av">PS</div>
+            <div class="d-none d-xl-block">
+              <div class="nav-av-name">Priya </div>
+              <div class="nav-av-role">Customer</div>
+            </div>
+            <i class="fa-solid fa-chevron-down ms-1" style="font-size:9px;color:rgba(255,255,255,.3)"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════ -->
+  <main class="cnt page-anim">
+
+    <!-- Zone pill -->
+    <div class="zpill cus">
+      <i class="fa-solid fa-user-circle"></i> Customer Zone
+    </div>
+
+    <!-- Page heading -->
+    <div class="ph">
+      <div>
+        <h1>My Dashboard</h1>
+        <p>Track your orders, wishlist, and account activity.</p>
+      </div>
+      <div class="ph-acts">
+        <a href="browse.html" class="btn-sn btn-p">
+          <i class="fa-solid fa-shop"></i> Shop Now
+        </a>
+      </div>
+    </div>
+
+    <!-- ── WELCOME BANNER ── -->
+    <div class="welcome-banner">
+      <div>
+        <div class="welcome-label">Welcome Back</div>
+        <div class="welcome-name">Hello, Priya Sharma! 👋</div>
+        <div class="welcome-sub">You have 2 orders in transit and 5 new offers waiting.</div>
+      </div>
+      <div class="welcome-stats">
+        <div class="ws-item">
+          <div class="ws-val">14</div>
+          <div class="ws-lbl">Orders</div>
+        </div>
+        <div class="ws-item">
+          <div class="ws-val">₹28K</div>
+          <div class="ws-lbl">Spent</div>
+        </div>
+        <div class="ws-item">
+          <div class="ws-val">8</div>
+          <div class="ws-lbl">Reviews</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ORDER STATUS STATS ── -->
+    <div class="sg mb-18">
+      <div class="sc am">
+        <div class="sc-top">
+          <div class="sc-ico am"><i class="fa-solid fa-hourglass-half"></i></div>
+        </div>
+        <div class="sc-val">1</div>
+        <div class="sc-lbl">Pending</div>
+      </div>
+
+      <div class="sc bl">
+        <div class="sc-top">
+          <div class="sc-ico bl"><i class="fa-solid fa-gear"></i></div>
+        </div>
+        <div class="sc-val">1</div>
+        <div class="sc-lbl">Processing</div>
+      </div>
+
+      <div class="sc cy">
+        <div class="sc-top">
+          <div class="sc-ico cy"><i class="fa-solid fa-truck"></i></div>
+        </div>
+        <div class="sc-val">2</div>
+        <div class="sc-lbl">In Transit</div>
+      </div>
+
+      <div class="sc gr">
+        <div class="sc-top">
+          <div class="sc-ico gr"><i class="fa-solid fa-circle-check"></i></div>
+        </div>
+        <div class="sc-val">10</div>
+        <div class="sc-lbl">Delivered</div>
+      </div>
+
+      <div class="sc ro">
+        <div class="sc-top">
+          <div class="sc-ico ro"><i class="fa-solid fa-heart"></i></div>
+        </div>
+        <div class="sc-val">24</div>
+        <div class="sc-lbl">Wishlist</div>
+      </div>
+    </div>
+
+    <!-- ── RECENT ORDERS + NOTIFICATIONS ── -->
+    <div class="g2">
+
+      <div class="card-sn">
+        <div class="ch">
+          <h3><i class="fa-solid fa-box-archive"></i> Recent Orders</h3>
+          <a href="my-orders.html" class="btn-sn btn-o btn-sm">View All</a>
+        </div>
+        <div class="table-responsive">
+          <table class="dt">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Items</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-family:var(--mono);color:var(--blue);font-weight:700">#ORD-8821</td>
+                <td>3 items</td>
+                <td><span style="font-family:var(--mono);font-weight:700">₹18,450</span></td>
+                <td><span class="bdg bdg-delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td style="font-family:var(--mono);color:var(--blue);font-weight:700">#ORD-8814</td>
+                <td>5 items</td>
+                <td><span style="font-family:var(--mono);font-weight:700">₹7,230</span></td>
+                <td><span class="bdg bdg-shipped">Shipped</span></td>
+              </tr>
+              <tr>
+                <td style="font-family:var(--mono);color:var(--blue);font-weight:700">#ORD-8801</td>
+                <td>1 item</td>
+                <td><span style="font-family:var(--mono);font-weight:700">₹42,000</span></td>
+                <td><span class="bdg bdg-processing">Processing</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-sn">
+        <div class="ch">
+          <h3><i class="fa-solid fa-bell"></i> Notifications</h3>
+          <span class="bdg bdg-pending">5 New</span>
+        </div>
+        <div class="cb">
+          <div class="notif-i">
+            <div class="nd2" style="background:var(--emerald)"></div>
+            <div class="notif-txt">
+              Your order <strong>#ORD-8814</strong> has been shipped!
+              <small>2 hours ago · Expected Mar 19</small>
+            </div>
+          </div>
+          <div class="notif-i">
+            <div class="nd2" style="background:var(--blue)"></div>
+            <div class="notif-txt">
+              <strong>SUMMER25</strong> — Get 25% off on electronics!
+              <small>Today · Use before Apr 30</small>
+            </div>
+          </div>
+          <div class="notif-i">
+            <div class="nd2" style="background:var(--amber)"></div>
+            <div class="notif-txt">
+              iPhone 15 Pro is back in stock!
+              <small>Yesterday</small>
+            </div>
+          </div>
+          <div class="notif-i">
+            <div class="nd2" style="background:var(--t3)"></div>
+            <div class="notif-txt">
+              Your review for Nike Air Max was published
+              <small>2 days ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
